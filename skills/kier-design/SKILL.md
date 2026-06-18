@@ -23,6 +23,10 @@ If command execution is available, start an `http-server` for the design directo
 - Make the document readable on screen and in print.
 - Include enough context that the HTML stands alone without the chat transcript.
 
+## Prompt Handling
+
+Treat the user's prompt as direction for the HTML plan. Unless the user says otherwise, incorporate additional requested details, examples, constraints, or sections into the artifact's structure rather than treating them as strict replacement instructions.
+
 ## Design Workflow
 
 1. State the design goal, audience, and constraints.

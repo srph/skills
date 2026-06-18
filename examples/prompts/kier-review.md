@@ -1,5 +1,5 @@
 # Fixture Prompt: /kier-review
 
-Use `/kier-review` to create a standalone HTML review of a pull request that adds three skills and two validation scripts.
+Use `/kier-review` to create a standalone HTML review comparing two team documentation tools: Notion and Linear Docs.
 
-Focus on correctness, maintainability, missing tests, and installation clarity.
+Focus on visual comparison across criteria, strengths and weaknesses, best-fit scenarios, and whether there is a clear winner.

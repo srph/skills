@@ -1,9 +1,9 @@
-# Kier HTML Skills
+# skills
 
 Harness-agnostic skills for producing standalone HTML artifacts:
 
 - `/kier-plan`: implementation plans.
-- `/kier-review`: reviews and findings reports.
+- `/kier-review`: option comparison reviews.
 - `/kier-design`: design explorations.
 
 Each skill writes a visually polished, self-contained `.html` document with embedded CSS and no remote assets. The skills do not depend on Cursor, Canvas, MCP, shell tools, or a specific agent harness.
@@ -92,3 +92,4 @@ examples/
   prompts/
   generated/
 ```
+
