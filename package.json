@@ -1,0 +1,15 @@
+{
+  "name": "kier-html-skills",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Harness-agnostic skills for generating standalone HTML planning, review, and design artifacts.",
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/validate-skills.mjs",
+    "validate:skills": "node scripts/validate-skills.mjs",
+    "test:html": "node scripts/validate-html.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

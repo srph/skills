@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kier Design Fixture</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; color: #162033; background: #f4f6fb; }
+    main { max-width: 1040px; margin: 0 auto; padding: 48px 24px; }
+    section { background: #fff; border: 1px solid #d9e0ec; border-radius: 16px; padding: 24px; margin: 18px 0; }
+    h1, h2, h3 { margin: 0 0 12px; }
+    p, li { line-height: 1.55; }
+    .directions { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .card { border: 1px solid #e3e7ef; border-radius: 12px; padding: 18px; background: #fbfcff; }
+    @media print { body { background: #fff; } section, .card { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Design Exploration: HTML Validation Dashboard</h1>
+    <p>A compact dashboard for maintainers who need to inspect generated artifacts and validation status quickly.</p>
+    <section>
+      <h2>Goals</h2>
+      <ul>
+        <li>Make validation status obvious at a glance.</li>
+        <li>Help reviewers open and compare generated artifacts.</li>
+        <li>Keep the interface useful without a backend service.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Exploration Directions</h2>
+      <div class="directions">
+        <article class="card">
+          <h3>Status Board</h3>
+          <p>Lead with pass/fail cards for each generated artifact, followed by direct links and concise failure messages.</p>
+        </article>
+        <article class="card">
+          <h3>Artifact Gallery</h3>
+          <p>Lead with visual previews of plan, review, and design outputs, then show validation details below each preview.</p>
+        </article>
+      </div>
+    </section>
+    <section>
+      <h2>Recommendation</h2>
+      <p>Start with the status board. It is faster to build, easier to maintain, and better aligned with validation-first review.</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kier Plan Fixture</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; color: #172033; background: #f7f8fb; }
+    main { max-width: 920px; margin: 0 auto; padding: 48px 24px; }
+    section { background: #fff; border: 1px solid #dde2ec; border-radius: 16px; padding: 24px; margin: 18px 0; }
+    h1, h2 { margin: 0 0 12px; }
+    p, li { line-height: 1.55; }
+    .summary { font-size: 1.1rem; color: #3a465d; }
+    @media print { body { background: #fff; } section { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Plan: Add Skill Validation</h1>
+    <p class="summary">Add a small dependency-free validator that checks skill metadata, structure, and HTML artifact requirements before changes are reviewed.</p>
+    <section>
+      <h2>Objective</h2>
+      <p>Create a repeatable local command that gives contributors fast feedback before publishing or installing the skills.</p>
+    </section>
+    <section>
+      <h2>Implementation Steps</h2>
+      <ol>
+        <li>Create a Node script that discovers `skills/*/SKILL.md`.</li>
+        <li>Validate frontmatter, descriptions, invocation aliases, and HTML contract language.</li>
+        <li>Add `npm test` as the primary verification entry point.</li>
+      </ol>
+    </section>
+    <section>
+      <h2>Verification</h2>
+      <p>Run `npm test`, generate sample HTML artifacts, and validate them with the HTML artifact checker.</p>
+    </section>
+    <section>
+      <h2>Risks</h2>
+      <p>The validator should avoid judging model output quality. It should only enforce stable structure and artifact contracts.</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kier Review Fixture</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; color: #1b2435; background: #f6f7f9; }
+    main { max-width: 960px; margin: 0 auto; padding: 48px 24px; }
+    section { background: #fff; border: 1px solid #dfe4ed; border-radius: 14px; padding: 24px; margin: 18px 0; }
+    h1, h2, h3 { margin: 0 0 12px; }
+    p, li { line-height: 1.55; }
+    .severity { display: inline-block; padding: 4px 10px; border-radius: 999px; background: #fff2cc; font-weight: 700; }
+    @media print { body { background: #fff; } section { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Review: Skills Repository Changes</h1>
+    <p>This fixture reviews a change that adds three HTML-focused skills and deterministic validation scripts.</p>
+    <section>
+      <h2>Findings</h2>
+      <article>
+        <h3><span class="severity">Medium</span> HTML validation should reject remote assets</h3>
+        <p><strong>Evidence:</strong> Generated artifacts are intended to be portable and harness-agnostic.</p>
+        <p><strong>Impact:</strong> Remote fonts, scripts, or images could break offline viewing and reduce trust in review artifacts.</p>
+        <p><strong>Recommendation:</strong> Keep the validator checks for remote `src`, remote `href`, scripts, links, and protocol-relative URLs.</p>
+      </article>
+    </section>
+    <section>
+      <h2>Test Gaps</h2>
+      <p>Model quality is not snapshot-tested. That is acceptable for now because the stable contract is structural, not prose-level.</p>
+    </section>
+    <section>
+      <h2>Summary</h2>
+      <p>The change is small and maintainable if the repo keeps validators deterministic and examples focused.</p>
+    </section>
+  </main>
+</body>
+</html>
