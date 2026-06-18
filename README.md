@@ -18,32 +18,52 @@ When command execution is available, the skill should also start an `http-server
 
 ## Install
 
-Install all three skills for Cursor globally:
-
-```bash
-npx skills add <owner>/<repo> --skill kier-plan --skill kier-review --skill kier-design -a cursor -g
-```
-
 Install every skill from this repo to every supported agent:
 
 ```bash
-npx skills add <owner>/<repo> --all
+npx skills add srph/skills
+```
+
+Install every skill for Cursor globally:
+
+```bash
+npx skills add srph/skills -a cursor -g
+```
+
+Install one skill for Cursor globally:
+
+```bash
+npx skills add srph/skills --skill kier-plan -a cursor -g
 ```
 
 Use one skill without installing:
 
 ```bash
-npx skills use <owner>/<repo> --skill kier-plan
+npx skills use srph/skills --skill kier-plan
 ```
 
-Replace `<owner>/<repo>` with the published GitHub repository, for example `kier/skills`.
+## Update
+
+Rerun the same install command to update installed skills from the latest `srph/skills` version:
+
+```bash
+npx skills add srph/skills -a cursor -g
+```
+
+For one installed skill:
+
+```bash
+npx skills add srph/skills --skill kier-plan -a cursor -g
+```
+
+If you installed from a local copy with `--copy`, rerun the local install command after edits.
 
 ## Local Development
 
-From the repo root, install the local working copy:
+From the repo root, install every local skill:
 
 ```bash
-npx skills add . --skill kier-plan --skill kier-review --skill kier-design -a cursor -g
+npx skills add . -a cursor -g
 ```
 
 The Skills CLI supports local paths. Its default behavior is best for development when symlinks work because edits are reflected immediately.
@@ -51,7 +71,7 @@ The Skills CLI supports local paths. Its default behavior is best for developmen
 On Windows machines where symlink permissions are unavailable or inconsistent, install copies instead:
 
 ```bash
-npx skills add . --skill kier-plan --skill kier-review --skill kier-design -a cursor -g --copy
+npx skills add . -a cursor -g --copy
 ```
 
 When using `--copy`, rerun the command after edits.
@@ -68,28 +88,5 @@ Validate generated HTML artifacts:
 
 ```bash
 npm run test:html -- examples/generated/*.html
-```
-
-## Manual Review Loop
-
-1. Install locally with `npx skills add . ...`.
-2. Generate one artifact with each skill using the prompts in `examples/prompts/`.
-3. Run `npm run test:html -- examples/generated/*.html`.
-4. Open each HTML file in a browser.
-5. Check whether the artifact is readable, print-friendly, and understandable without chat context.
-
-## Repo Layout
-
-```text
-skills/
-  kier-plan/SKILL.md
-  kier-review/SKILL.md
-  kier-design/SKILL.md
-scripts/
-  validate-skills.mjs
-  validate-html.mjs
-examples/
-  prompts/
-  generated/
 ```
 
