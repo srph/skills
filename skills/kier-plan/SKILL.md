@@ -34,6 +34,7 @@ Treat the user's prompt as direction for the HTML plan. Unless the user says oth
 - Treat later prompts as requests to adjust the plan, not as approval to run the plan.
 - Add relevant snippets of critical code that will be added or modified.
 - When the plan touches or proposes code, include comments in the snippets and explain the underlying context from the conversation.
+- Render all code examples inside `<pre><code class="language-...">...</code></pre>` blocks. Include highlight.js from a CDN plus a readable dark theme for syntax highlighting. Escape code content properly.
 
 ## Planning Workflow
 
