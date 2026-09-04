@@ -21,6 +21,18 @@ Create one polished, interactive HTML page showing several design variations for
 - New app with a reference: use the reference as the style guide unless told otherwise.
 - New app without a reference: offer distinct style directions to choose from.
 
+## Axes
+
+Layout, style, density, motion, copy. Vary the two or three that matter for this prompt.
+
+## Scope
+
+| Prompt is about | Each canvas shows |
+|---|---|
+| A component | Every state side by side at real size, plus one in-situ shot |
+| A slice of a page | The real slice; the rest of the page as a skeleton |
+| A page | The full layout at one breakpoint; mobile only if asked |
+
 ## Word budget
 
 - Under 250 words outside the canvases. Trim the brief before the good/bad cards.
@@ -32,7 +44,6 @@ Create one polished, interactive HTML page showing several design variations for
 - From the brief: add variations from the original brief.
 - From a variation: add variations using an existing one as the direction.
 - Remix: fork an existing variation and apply the suggestions to the fork. Never replace one; they are there for comparison.
-- IDs are stable across files. Variations are A, B, C; forks keep the parent's letter plus a suffix (A2, A2b). A follow-up file names its parent file in the brief.
 
 ## Structure
 
@@ -44,3 +55,8 @@ Create one polished, interactive HTML page showing several design variations for
 3. **Pick.** One sentence naming the recommended variation and why. Nothing after it.
 
 When the UI is a slice of a page, draw the rest of the page as a skeleton and vary only the slice.
+
+## Naming
+
+- Variations are A, B, C. Forks keep the parent's letter plus a suffix: A2, A2b.
+- A follow-up file names its parent file in the brief.
