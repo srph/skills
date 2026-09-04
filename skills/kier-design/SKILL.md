@@ -7,44 +7,40 @@ description: Create design explorations as standalone HTML artifacts. Use when t
 
 ## Output
 
-Create one visually polished, glanceable, self-contained HTML document for a design exploration. Do not copy the target app's aesthetics for the exploration UI; design the exploration as its own readable artifact.
+Create one polished, interactive HTML page showing several design variations for the scenario. Vary by layout and by style. Mockups first; words are captions, not essays.
 
-If file writing is available, write the design exploration to `.kier/designs/XXXX-<summary>.html`, where `XXXX` is a short unique id and `<summary>` is a kebab-case summary. If file writing is unavailable, return the full HTML in the response.
+## Output
 
-If command execution is available, start an `http-server` for the design directory and bind it so Tailscale users can access it, for example on `0.0.0.0`. Report the local URL, Tailscale-accessible URL or host/port, and file path. If serving is unavailable, report the file path or HTML only.
+- Write to `.kier/designs/XXXX-<summary>.html` (`XXXX` short unique id, `<summary>` kebab-case). If file writing is unavailable, return the HTML.
+- If command execution is available, serve the directory with `http-server` on `0.0.0.0` and report the local URL, Tailscale URL or host/port, and file path.
+- The page's own chrome (brief, cards, canvas frames) is a neutral reading surface. Only the mockups inside the canvases use the target app's look.
 
-## HTML Contract
+## Style
 
-- Start with `<!doctype html>`.
-- Include `<html>`, `<head>`, `<title>`, and `<body>`.
-- Embed all CSS in a `<style>` tag.
-- Do not reference remote assets, scripts, stylesheets, fonts, images, or iframes.
-- Use semantic HTML: `main`, `section`, headings, lists, and tables only when useful.
-- Make the document readable on screen and in print.
-- Include enough context that the HTML stands alone without the chat transcript.
+- Existing app: match its current design; deviate as little as possible unless told otherwise.
+- New app with a reference: use the reference as the style guide unless told otherwise.
+- New app without a reference: offer distinct style directions to choose from.
 
-## Prompt Handling
+## Word budget
 
-Treat the user's prompt as direction for the HTML plan. Unless the user says otherwise, incorporate additional requested details, examples, constraints, or sections into the artifact's structure rather than treating them as strict replacement instructions.
+- Under 250 words outside the canvases. Trim the brief before the good/bad cards.
+- No sections for context, audience, current state, codebase notes, tradeoffs, next steps, or open questions. Say those in chat if they matter.
+- If a sentence still makes sense without a mockup beside it, it belongs in chat.
 
-## Design Workflow
+## Follow-up prompts
 
-1. State the design goal, audience, and constraints.
-2. Identify the key product or UX problem.
-3. Explore multiple directions before recommending one.
-4. Show tradeoffs across usability, clarity, feasibility, and risk.
-5. Include layout, interaction, content, and visual treatment notes.
-6. End with a recommendation and the next experiment or prototype.
+- From the brief: add variations from the original brief.
+- From a variation: add variations using an existing one as the direction.
+- Remix: fork an existing variation and apply the suggestions to the fork. Never replace one; they are there for comparison.
+- IDs are stable across files. Variations are A, B, C; forks keep the parent's letter plus a suffix (A2, A2b). A follow-up file names its parent file in the brief.
 
-## Suggested Sections
+## Structure
 
-- Title and design brief.
-- Goals and non-goals.
-- Constraints.
-- User or workflow assumptions.
-- Exploration directions.
-- Comparison and tradeoffs.
-- Recommended direction.
-- Next experiments.
+1. **Brief.** One large headline stating the problem, under 12 words. Under it, a row of small cards, one goal or constraint each, one sentence max.
+2. **Variations.** The bulk of the page. For each:
+   - Identifier plus a name under 10 words.
+   - The mockup inside a framed canvas at realistic size, with interactive states where they matter.
+   - Two to four one-line cards marked good or bad.
+3. **Pick.** One sentence naming the recommended variation and why. Nothing after it.
 
-Use HTML layout to make alternatives easy to compare. Prefer practical design decisions over decorative language.
+When the UI is a slice of a page, draw the rest of the page as a skeleton and vary only the slice.
