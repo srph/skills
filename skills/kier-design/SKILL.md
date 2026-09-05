@@ -5,9 +5,7 @@ description: Create design explorations as standalone HTML artifacts. Use when t
 
 # Kier Design
 
-## Output
-
-Create one polished, interactive HTML page showing several design variations for the scenario. Vary by layout and by style. Mockups first; words are captions, not essays.
+Create one polished, interactive HTML page showing several design variations for the scenario. Vary by layout and treatment. Mockups first; words are captions, not essays.
 
 ## Output
 
@@ -23,13 +21,13 @@ Create one polished, interactive HTML page showing several design variations for
 
 ## Axes
 
-Layout, style, density, motion, copy. Vary the two or three that matter for this prompt.
+Layout, treatment, density, motion, copy. Vary the two or three that matter for this prompt, inside the style chosen above.
 
 ## Scope
 
 | Prompt is about | Each canvas shows |
 |---|---|
-| A component | Every state side by side at real size, plus one in-situ shot |
+| A component | Every state at real size, side by side if three or fewer, else behind a toggle; plus one in-situ shot |
 | A slice of a page | The real slice; the rest of the page as a skeleton |
 | A page | The full layout at one breakpoint; mobile only if asked |
 
@@ -54,7 +52,7 @@ Layout, style, density, motion, copy. Vary the two or three that matter for this
    - Two to four one-line cards marked good or bad.
 3. **Pick.** One sentence naming the recommended variation and why. Nothing after it.
 
-When the UI is a slice of a page, draw the rest of the page as a skeleton and vary only the slice.
+If the UI already exists, the first canvas is the current version, labelled Now.
 
 ## Naming
 
