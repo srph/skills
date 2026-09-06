@@ -11,7 +11,7 @@ Create one polished, interactive HTML page showing several design variations for
 
 - Write to `.kier/designs/XXXX-<summary>.html` (`XXXX` short unique id, `<summary>` kebab-case). If file writing is unavailable, return the HTML.
 - If command execution is available, serve the directory with `http-server` on `0.0.0.0` and report the local URL, Tailscale URL or host/port, and file path.
-- The page's own chrome (brief, cards, canvas frames) is a neutral reading surface. Only the mockups inside the canvases use the target app's look.
+- The page's own chrome (brief, cards, canvas frames, minimap) is a neutral reading surface. Only the mockups inside the canvases use the target app's look.
 
 ## Style
 
@@ -39,9 +39,9 @@ Layout, treatment, density, motion, copy. Vary the two or three that matter for 
 
 ## Follow-up prompts
 
-- From the brief: add variations from the original brief.
-- From a variation: add variations using an existing one as the direction.
+- Explore: add variations, either from the original brief or using an existing variation as the direction.
 - Remix: fork an existing variation and apply the suggestions to the fork. Never replace one; they are there for comparison.
+- Settle: the user picks one variation. Stop exploring; that variation is the direction for whatever comes next.
 
 ## Structure
 
@@ -50,9 +50,18 @@ Layout, treatment, density, motion, copy. Vary the two or three that matter for 
    - Identifier plus a name under 10 words.
    - The mockup inside a framed canvas at realistic size, with interactive states where they matter.
    - Two to four one-line cards marked good or bad.
-3. **Pick.** One sentence naming the recommended variation and why. Nothing after it.
+3. **Further Actions.** A section titled Further Actions with three cards, one each for Explore, Remix, Settle, each with a one-line explanation of what to ask for. Nothing after them.
 
 If the UI already exists, the first canvas is the current version, labelled Now.
+
+## Minimap
+
+When the page has two or more variations, add a line minimap: a fixed stack of short horizontal lines, vertically centred on the left edge, one per canvas (Now, then A, B, C in page order).
+
+- The line for the canvas nearest the top of the viewport is darker and longer; update it on scroll.
+- Hovering the stack expands it in place into a list of labels, identifier plus name. Leaving collapses it.
+- Clicking a line or label smooth-scrolls to that canvas.
+- Neutral chrome, same as the brief and cards. Never covers a canvas.
 
 ## Naming
 
