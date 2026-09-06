@@ -5,47 +5,68 @@ description: Compare products, designs, vendors, tools, or other options as stan
 
 # Kier Review
 
+Create one polished, glanceable HTML comparison. Tables and badges first; words are captions, not essays. The reader gets the pick and the reason in ten seconds, and the specs by zooming in.
+
 ## Output
 
-Create one visually polished, glanceable, self-contained HTML document for a comparison review. Do not copy the options' aesthetics for the review UI; design the review as its own readable artifact.
+- Write to `.kier/reviews/XXXX-<summary>.html` (`XXXX` short unique id, `<summary>` kebab-case). If file writing is unavailable, return the HTML.
+- If command execution is available, serve the directory with `http-server` on `0.0.0.0` and report the local URL, Tailscale URL or host/port, and file path.
+- The page is a neutral reading surface. Do not borrow the options' branding or aesthetics.
 
-If file writing is available, write the review to `.kier/reviews/XXXX-<summary>.html`, where `XXXX` is a short unique id and `<summary>` is a kebab-case summary. If file writing is unavailable, return the full HTML in the response.
+## Options
 
-If command execution is available, start an `http-server` for the review directory and bind it so Tailscale users can access it, for example on `0.0.0.0`. Report the local URL, Tailscale-accessible URL or host/port, and file path. If serving is unavailable, report the file path or HTML only.
+- If the user names the options, compare exactly those. Alternatives the model would add (a newer release, a cheaper sibling, a category the user missed) go in a separate Also consider section, never into the main table.
+- If the user names no options, the model picks the shortlist. Three to six.
 
-## HTML Contract
+## Criteria
 
-- Start with `<!doctype html>`.
-- Include `<html>`, `<head>`, `<title>`, and `<body>`.
-- Embed all CSS in a `<style>` tag.
-- Do not reference remote assets, scripts, stylesheets, fonts, images, or iframes.
-- Use semantic HTML: `main`, `section`, headings, lists, and tables only when useful.
-- Make the document readable on screen and in print.
-- Include enough context that the HTML stands alone without the chat transcript.
+- If the user names key items to check, those are the first rows of the table, in the user's order. The model may add up to three rows after them, each badged Added.
+- If the user names none, the model picks. Specs plus the points that decide a purchase: price, availability, risk, fit for the stated use.
+- One line per cell. A number, a yes/no badge, or a phrase under 12 words. Never a sentence pair.
 
-## Prompt Handling
+## Links
 
-Treat the user's prompt as direction for the HTML plan. Unless the user says otherwise, incorporate additional requested details, examples, constraints, or sections into the artifact's structure rather than treating them as strict replacement instructions.
+- When web access is available, link each option to a page where it can be bought or read about. Link the name in the brief cards, the table header, and the spec sheet summary.
+- Order of preference: a retailer that ships locally to the user (for the Philippines: DataBlitz, Lazada, Shopee, a local physical store's site), then the maker's official page, then an international marketplace such as Amazon.
+- Each spec sheet gets a Where to buy row: up to three links, local first, each with the listed price and date checked.
+- Only link URLs actually fetched or returned by search. Never guess a URL. If nothing is found, leave the name unlinked and say so in Sources.
+- Links open in a new tab. Show the retailer name as the link text, not the URL.
 
-## Review Workflow
+## Visual vocabulary
 
-1. Identify the options being compared, the audience, and the decision context.
-2. Define the criteria that matter for the decision, such as usability, cost, reliability, capability, maintainability, risk, or fit.
-3. Open with the verdict: clear winner, conditional winner, or no single winner.
-4. Compare the options visually across multiple criteria with scores, labels, or concise evidence.
-5. Explain each option's strengths, weaknesses, risks, and best-fit use cases.
-6. End with a recommendation that says who should choose each option and why.
+| To show | Use |
+|---|---|
+| The pick | A verdict badge (clear, conditional, split) beside a one-line reason |
+| Options side by side | One table, criteria as rows, options as columns; best cell per row tinted, dealbreakers red |
+| Specs for one option | A two-column key/value sheet inside a collapsed `<details>` |
+| A figure that depends on scale | A small table at the user's stated volume or budget; only if they gave one |
+| Fit for a stated use | A badge per option: fits, partial, does not fit |
+| Uncertainty | A badge marked unverified on the cell, with the reason in Sources |
 
-## Suggested Comparison Ingredients
+Tables are HTML tables. No images, no ASCII art.
 
-Use any of these when they fit the review. Do not treat this as a required template or limit the artifact to this structure:
+## Word budget
 
-- Role: what this option is best suited for.
-- Strengths: where it clearly outperforms the alternative.
-- Weaknesses: where it falls behind or adds risk.
-- Criteria evidence: concise observations supporting the scores or labels.
-- Best fit: the user, team, budget, or scenario where it should win.
-- Decision matrix: criteria, ratings, weights, or tradeoff labels.
-- Verdict: clear winner, conditional winner, split recommendation, or no single winner.
+- Under 400 words outside table cells, badges, headings, and the Sources block.
+- No paragraphs. Captions are one sentence. Card bodies are one line.
+- No per-option strengths and weaknesses lists. The table column is the profile.
+- No sections for background, context restatement, methodology, or things the reader should know. Say those in chat.
+- If a sentence still makes sense without a table beside it, it belongs in chat.
 
-If there is no clear winner, say that clearly and make the tradeoff explicit. Avoid turning the review into a bug report unless the user specifically asks for code review.
+## Structure
+
+1. **Brief.** The question in under 12 words. Under it, a row of small cards: the options, the use or setting if the user stated one, budget if stated, date checked.
+2. **Recommendation.** Verdict badge, the pick, and the one reason that decides it. If the user stated a use or background, one more line: the pick for that use, only if it differs or needs a condition. Nothing else here.
+3. **Comparison.** The table. Criteria rows, option columns, best cell tinted, dealbreakers red, Added rows badged.
+4. **Also consider.** Only when the user named the options and the model has an alternative worth a look. One card each: name, one line on why, one line on what it costs them. Not in the table.
+5. **Spec sheets.** One collapsed `<details>` per option, closed by default. Summary line: name linked, price, one-line role. Open: a key/value sheet of the full specs, ending with the Where to buy row. Nothing in it is required to understand the recommendation.
+6. **Sources.** A collapsed `<details>` at the end. One line per source: what it supports, where it came from, when checked. Unverified cells name their reason here.
+
+Nothing after Sources.
+
+## Follow-up prompts
+
+- Add an option: add a column and a spec sheet. Keep the file id. Re-evaluate the pick and say in chat if it changed.
+- Add a criterion: add a row. Same.
+- Promote from Also consider: move it into the table and remove the card.
+- Never remove an option the user named.
