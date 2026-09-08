@@ -58,6 +58,7 @@ Diagrams are hand-authored inline SVG or CSS grid, never ASCII art or images.
 - The top of the page is the overview: headline, fact cards, one diagram of the whole change, the tree if files are added or moved, the mockup if there is UI.
 - Each phase is a `<details>` card, closed by default. Closed: number, name, one-line outcome, file badges. Open: the snippets.
 - Nothing below the overview is required to understand the plan.
+- Every `<details>` keeps a visible caret on its summary so the reader can tell it opens. Never hide the disclosure marker; if the default one is restyled, draw a replacement that rotates when open.
 
 ## Structure
 
