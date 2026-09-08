@@ -63,13 +63,27 @@ Diagrams are hand-authored inline SVG or CSS grid, never ASCII art or images.
 
 1. **Headline.** The objective in under 12 words. Under it, a row of small fact cards: surface, shape, files touched, governing rule, status.
 2. **Shape.** One diagram of the whole change. Before and after if modifying. One caption.
-3. **Tree.** Only if the change adds, moves, splits, or deletes files. The affected directories as they will look after the change, touched paths badged, untouched siblings in grey. One caption on what the boundaries mean.
+3. **Tree.** Only if the change adds, moves, splits, or deletes files. The affected directories as they will look after the change, touched paths badged, untouched siblings in grey. One caption on what the boundaries mean. Rendered as described under Tree.
 4. **What it looks like.** Only if UI changes. Mockup in a canvas at real size. One caption.
 5. **Phases.** Timeline, then one collapsed card per phase with its snippets inside.
 6. **Decisions.** One card per decision: question, options with the pick marked, one-line why.
 7. **Risks.** One card per risk: severity badge, risk, one-line mitigation.
 8. **Verify.** Checklist with the command or "manual" on each item.
 9. **Next.** One sentence naming the first action. Nothing after it.
+
+## Tree
+
+Render the tree as nested lists, never indented text in a `<pre>`. A directory's children are a `<ul>` inside that directory's `<li>`. Connector lines drawn with CSS: one vertical rule per nesting level, one horizontal tick per item. Directories bold with a trailing slash. Touched paths carry an inline badge; untouched siblings are grey; deleted paths are struck through. Monospace for names, no bullets, no box-drawing characters.
+
+```css
+.tree, .tree ul { list-style: none; margin: 0; padding: 0 }
+.tree ul { position: relative; padding-left: 20px }
+.tree ul::before { content: ""; position: absolute; left: 6px; top: 0; bottom: 14px; border-left: 1px solid var(--line) }
+.tree li { position: relative; padding-left: 14px }
+.tree li::before { content: ""; position: absolute; left: -14px; top: 13px; width: 20px; border-top: 1px solid var(--line) }
+.tree > li { padding-left: 0 }
+.tree > li::before { display: none }
+```
 
 ## Follow-up prompts
 
