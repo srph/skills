@@ -1,6 +1,6 @@
 ---
 name: refactor
-description: Restructure existing code without changing behavior. Use when the user invokes /refactor. Two modes: cleanup (fix what sticks out) and rehaul (redesign the structure from first principles)
+description: Restructure existing code without changing behavior. Use when the user invokes /refactor.
 disable-model-invocation: true
 ---
 

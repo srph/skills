@@ -1,6 +1,6 @@
 ---
 name: Push
-description: Stage changes, commit, and push to the current branch
+description: Stage changes, commit, and push to the current branch. Use when the user invokes /push.
 disable-model-invocation: true
 ---
 
