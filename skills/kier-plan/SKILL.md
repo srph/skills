@@ -35,7 +35,7 @@ Every section leads with a visual. Prose is a one-line caption under it.
 | A UI change | Mockup in a framed canvas at real size, the new part highlighted |
 | Options or tradeoffs | Side-by-side cards, recommended option marked |
 | Risks | Cards with a severity badge and one-line mitigation |
-| Verification | Checklist |
+| Verification | Checklist grouped by type |
 
 Diagrams are hand-authored inline SVG or CSS grid, never ASCII art or images.
 
@@ -71,7 +71,7 @@ Diagrams are hand-authored inline SVG or CSS grid, never ASCII art or images.
 6. **Phases.** Timeline, then one collapsed card per phase with its snippets inside.
 7. **Decisions.** One card per decision: question, options with the pick marked, one-line why.
 8. **Risks.** One card per risk: severity badge, risk, one-line mitigation.
-9. **Verify.** Checklist with the command or "manual" on each item.
+9. **Verify.** Checklist grouped by type in this order, empty groups omitted: **User** (only what an end user does or sees, each item starting "User can …" or "User sees …"), **System** (behaviour and data, "X still …" / "X never …"), **Automated** (what the command proves). Each item is one line that leads with the outcome, the command or "manual" as a mono tag on the right.
 10. **Next.** One sentence naming the first action. Nothing after it.
 
 ## Tree
