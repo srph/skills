@@ -10,6 +10,7 @@ Create one polished, interactive HTML page showing several design variations for
 ## Output
 
 - Write to `.kier/designs/XXXX-<summary>.html` (`XXXX` short unique id, `<summary>` kebab-case). If file writing is unavailable, return the HTML.
+- Edit the existing HTML file in place for iterations, including Explore and Remix.
 - If command execution is available, serve the directory with `http-server` on `0.0.0.0` and report the local URL, Tailscale URL or host/port, and file path.
 - The page's own chrome (brief, cards, canvas frames, minimap, Pick menus) is a neutral reading surface. Only the mockups inside the canvases use the target app's look.
 
@@ -78,4 +79,3 @@ When the page has two or more variations, add a line minimap: a fixed stack of s
 ## Naming
 
 - Variations are A, B, C. Forks keep the parent's letter plus a suffix: A2, A2b.
-- A follow-up file names its parent file in the brief.
