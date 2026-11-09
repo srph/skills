@@ -3,7 +3,7 @@ import path from "node:path";
 
 const root = process.cwd();
 const skillsDir = path.join(root, "skills");
-const expectedSkills = new Set(["kier-plan", "kier-review", "kier-design"]);
+const expectedSkills = new Set(["kier-plan", "compare", "kier-design"]);
 const errors = [];
 
 function fail(message) {

@@ -3,13 +3,13 @@
 Harness-agnostic skills for producing standalone HTML artifacts:
 
 - `/kier-plan`: implementation plans
-- `/kier-review`: option comparison reviews
+- `/compare`: option comparisons
 - `/kier-design`: design explorations
 
 Each skill writes a visually polished, self-contained html file. When file writing is available, outputs use `.kier/`:
 
 - `/kier-plan`: `.kier/plans/XXXX-<summary>.html`
-- `/kier-review`: `.kier/reviews/XXXX-<summary>.html`
+- `/compare`: `.kier/compare/XXXX-<summary>.html`
 - `/kier-design`: `.kier/designs/XXXX-<summary>.html`
 
 ## Install

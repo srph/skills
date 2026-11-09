@@ -1,15 +1,15 @@
 ---
-name: kier-review
-description: Compare products, designs, vendors, tools, or other options as standalone HTML artifacts. Use when the user invokes /kier-review or asks for a review, comparison, assessment, verdict, strengths, weaknesses, or option recommendation in HTML.
+name: compare
+description: Compare products, designs, vendors, tools, or other options as standalone HTML artifacts. Use when the user invokes /compare or asks for a review, comparison, assessment, verdict, strengths, weaknesses, or option recommendation in HTML.
 ---
 
-# Kier Review
+# Compare
 
 Create one polished, glanceable HTML comparison. Tables and badges first; words are captions, not essays. The reader gets the pick and the reason in ten seconds, and the specs by zooming in.
 
 ## Output
 
-- Write to `.kier/reviews/XXXX-<summary>.html` (`XXXX` short unique id, `<summary>` kebab-case). If file writing is unavailable, return the HTML.
+- Write to `.kier/compare/XXXX-<summary>.html` (`XXXX` short unique id, `<summary>` kebab-case). If file writing is unavailable, return the HTML.
 - If command execution is available, serve the directory with `http-server` on `0.0.0.0` and report the local URL, Tailscale URL or host/port, and file path.
 - The page is a neutral reading surface. Do not borrow the options' branding or aesthetics.
 
