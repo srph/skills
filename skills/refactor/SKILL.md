@@ -35,7 +35,7 @@ This is the method for preserving option value when integrating changes into an 
 # Rehaul
 - Ask: "If we rewrote this from scratch, knowing everything it does today, how would we build it?"
 - Understand what it does first, including edge cases and quirk callers rely on
-- Show the target before executing: before/after file tree, new boundaries. Use /kier-plan when it's large
+- Show the target before executing: before/after file tree, new boundaries. Use /scope when it's large
 - Delete don't deprecate: no shims, no v2 files, no compat re-exports unless it's a public API
 - Apply to every reference: imports, types, tests, docs, stories
 - Deliver in steps that each leave the build green

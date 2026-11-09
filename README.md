@@ -2,13 +2,13 @@
 
 Harness-agnostic skills for producing standalone HTML artifacts:
 
-- `/kier-plan`: implementation plans
+- `/scope`: implementation plans
 - `/compare`: option comparisons
 - `/explore`: design explorations
 
 Each skill writes a visually polished, self-contained html file. When file writing is available, outputs use `.kier/`:
 
-- `/kier-plan`: `.kier/plans/XXXX-<summary>.html`
+- `/scope`: `.kier/scope/XXXX-<summary>.html`
 - `/compare`: `.kier/compare/XXXX-<summary>.html`
 - `/explore`: `.kier/explore/XXXX-<summary>.html`
 
@@ -23,13 +23,13 @@ npx skills add srph/skills
 Install one skill:
 
 ```bash
-npx skills add srph/skills --skill kier-plan
+npx skills add srph/skills --skill scope
 ```
 
 Use one skill without installing:
 
 ```bash
-npx skills use srph/skills --skill kier-plan
+npx skills use srph/skills --skill scope
 ```
 
 ## Update
@@ -43,7 +43,7 @@ npx skills add srph/skills
 For one installed skill:
 
 ```bash
-npx skills add srph/skills --skill kier-plan
+npx skills add srph/skills --skill scope
 ```
 
 If you installed from a local copy with `--copy`, rerun the local install command after edits.

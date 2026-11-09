@@ -1,15 +1,15 @@
 ---
-name: kier-plan
-description: Write implementation plans as standalone HTML artifacts. Use when the user invokes /kier-plan or asks for a plan, implementation approach, rollout plan, migration plan, or technical planning document in HTML.
+name: scope
+description: Write implementation plans as standalone HTML artifacts. Use when the user invokes /scope or asks for a plan, implementation approach, rollout plan, migration plan, or technical planning document in HTML.
 ---
 
-# Kier Plan
+# Scope
 
 Create one polished, glanceable HTML implementation plan. Diagrams and snippets first; words are captions, not essays. The reader gets the shape of the change in ten seconds and the details by zooming in.
 
 ## Output
 
-- Write to `.kier/plans/XXXX-<summary>.html` (`XXXX` short unique id, `<summary>` kebab-case). If file writing is unavailable, return the HTML.
+- Write to `.kier/scope/XXXX-<summary>.html` (`XXXX` short unique id, `<summary>` kebab-case). If file writing is unavailable, return the HTML.
 - If command execution is available, serve the directory with `http-server` on `0.0.0.0` and report the local URL, Tailscale URL or host/port, and file path.
 - The page is a neutral reading surface. Only UI mockups inside canvases use the target app's look.
 
