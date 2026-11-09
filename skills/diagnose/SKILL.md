@@ -1,9 +1,9 @@
 ---
-name: debug
-description: Diagnose root causes without applying fixes, then recommend options concisely. Use when the user invokes /debug or requests diagnosis only.
+name: diagnose
+description: Diagnose root causes without applying fixes, then recommend options concisely. Use when the user invokes /diagnose or requests diagnosis only.
 ---
 
-# Debug
+# Diagnose
 
 ## Word budget
 
