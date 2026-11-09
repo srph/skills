@@ -1,15 +1,15 @@
 ---
-name: kier-design
-description: Create design explorations as standalone HTML artifacts. Use when the user invokes /kier-design or asks for design exploration, product direction, UX alternatives, visual concepts, or interface options in HTML.
+name: explore
+description: Create design explorations as standalone HTML artifacts. Use when the user invokes /explore or asks for design exploration, product direction, UX alternatives, visual concepts, or interface options in HTML.
 ---
 
-# Kier Design
+# Explore
 
 Create one polished, interactive HTML page showing several design variations for the scenario. Vary by layout and treatment. Mockups first; words are captions, not essays.
 
 ## Output
 
-- Write to `.kier/designs/XXXX-<summary>.html` (`XXXX` short unique id, `<summary>` kebab-case). If file writing is unavailable, return the HTML.
+- Write to `.kier/explore/XXXX-<summary>.html` (`XXXX` short unique id, `<summary>` kebab-case). If file writing is unavailable, return the HTML.
 - Edit the existing HTML file in place for iterations, including Explore and Remix.
 - If command execution is available, serve the directory with `http-server` on `0.0.0.0` and report the local URL, Tailscale URL or host/port, and file path.
 - The page's own chrome (brief, cards, canvas frames, minimap, Pick menus) is a neutral reading surface. Only the mockups inside the canvases use the target app's look.
@@ -44,7 +44,7 @@ Layout, treatment, density, motion, copy. Vary the two or three that matter for 
 - Remix: fork an existing variation and apply the suggestions to the fork. Never replace one; they are there for comparison. `Remix B: <changes>`.
 - Settle: the user picks one variation. Stop exploring; that variation is the target output and implementation reference. Build it in the codebase's conventions and tech stack. `Settle on B. Use it as target output and implementation reference. Build it in the codebase's conventions and tech stack.`
 
-Each form names the file right after the variation: `Explore from B in .kier/designs/0421-yeet-chip.html`, `Settle on B in .kier/designs/0421-yeet-chip.html. Use it as target output and implementation reference. Build it in the codebase's conventions and tech stack.` The Pick menu on every canvas produces these forms, so accept them verbatim.
+Each form names the file right after the variation: `Explore from B in .kier/explore/0421-yeet-chip.html`, `Settle on B in .kier/explore/0421-yeet-chip.html. Use it as target output and implementation reference. Build it in the codebase's conventions and tech stack.` The Pick menu on every canvas produces these forms, so accept them verbatim.
 
 ## Structure
 
@@ -61,7 +61,7 @@ If the UI already exists, the first canvas is the current version, labelled Now.
 
 Every canvas header, Now included, ends with a small neutral button labelled Pick. It opens a menu of three actions for that variation, in this order: Explore from this, Remix this, Settle on this, each with a one-line hint.
 
-- Choosing one copies a ready-to-send prompt to the clipboard and shows it under the header with a Copied note. The prompt is the follow-up form for that verb, variation, and file: `Explore from B in .kier/designs/0421-yeet-chip.html`. Remix ends with a colon so the user types their changes after it.
+- Choosing one copies a ready-to-send prompt to the clipboard and shows it under the header with a Copied note. The prompt is the follow-up form for that verb, variation, and file: `Explore from B in .kier/explore/0421-yeet-chip.html`. Remix ends with a colon so the user types their changes after it.
 - If the clipboard is unavailable, show the prompt in a selectable field instead.
 - Build the menus and prompts with a script from each canvas's identifier, name, and the file path. Never hand-write them per variation.
 - Opens on click or Enter, closes on Escape, on choosing, or on clicking outside. Only one menu open at a time.
