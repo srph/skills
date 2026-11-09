@@ -1,15 +1,17 @@
 ---
 name: compare
-description: Compare products, designs, vendors, tools, or other options as standalone HTML artifacts. Use when the user invokes /compare or asks for a review, comparison, assessment, verdict, strengths, weaknesses, or option recommendation in HTML.
+description: Compare products, designs, vendors, tools, or other options as standalone HTML artifacts. Use when the user invokes /compare or asks for a review, comparison, assessment, verdict, strengths, weaknesses, or option recommendation in HTML. Not for code review.
 ---
 
 # Compare
 
 Create one polished, glanceable HTML comparison. Tables and badges first; words are captions, not essays. The reader gets the pick and the reason in ten seconds, and the specs by zooming in.
 
+For products, tools, vendors, and other options to choose between. Not for code reviews or reviewing a diff.
+
 ## Output
 
-- Write to `.kier/compare/XXXX-<summary>.html` (`XXXX` short unique id, `<summary>` kebab-case). If file writing is unavailable, return the HTML.
+- Write to `.kier/compare/NNNN-<summary>.html`. `NNNN` is one more than the highest numeric prefix already in `.kier/compare/`, zero-padded to four digits; `0001` if there is none. Ignore files whose prefix is not all digits. `<summary>` is kebab-case. If file writing is unavailable, return the HTML.
 - If command execution is available, serve the directory with `http-server` on `0.0.0.0` and report the local URL, Tailscale URL or host/port, and file path.
 - The page is a neutral reading surface. Do not borrow the options' branding or aesthetics.
 

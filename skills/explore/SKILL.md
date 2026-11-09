@@ -9,8 +9,7 @@ Create one polished, interactive HTML page showing several design variations for
 
 ## Output
 
-- Write to `.kier/explore/XXXX-<summary>.html` (`XXXX` short unique id, `<summary>` kebab-case). If file writing is unavailable, return the HTML.
-- Edit the existing HTML file in place for iterations, including Explore and Remix.
+- Write to `.kier/explore/NNNN-<summary>.html`. `NNNN` is one more than the highest numeric prefix already in `.kier/explore/`, zero-padded to four digits; `0001` if there is none. Ignore files whose prefix is not all digits. `<summary>` is kebab-case. If file writing is unavailable, return the HTML.
 - If command execution is available, serve the directory with `http-server` on `0.0.0.0` and report the local URL, Tailscale URL or host/port, and file path.
 - The page's own chrome (brief, cards, canvas frames, minimap, Pick menus) is a neutral reading surface. Only the mockups inside the canvases use the target app's look.
 
@@ -45,6 +44,8 @@ Layout, treatment, density, motion, copy. Vary the two or three that matter for 
 - Settle: the user picks one variation. Stop exploring; that variation is the target output and implementation reference. Build it in the codebase's conventions and tech stack. `Settle on B. Use it as target output and implementation reference. Build it in the codebase's conventions and tech stack.`
 
 Each form names the file right after the variation: `Explore from B in .kier/explore/0421-yeet-chip.html`, `Settle on B in .kier/explore/0421-yeet-chip.html. Use it as target output and implementation reference. Build it in the codebase's conventions and tech stack.` The Pick menu on every canvas produces these forms, so accept them verbatim.
+
+Explore and Remix edit that file in place. New variations become new canvases on the same page; existing canvases stay as they are. Never write a new file for them.
 
 ## Structure
 

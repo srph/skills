@@ -8,9 +8,11 @@ Harness-agnostic skills for producing standalone HTML artifacts:
 
 Each skill writes a visually polished, self-contained html file. When file writing is available, outputs use `.kier/`:
 
-- `/scope`: `.kier/scope/XXXX-<summary>.html`
-- `/compare`: `.kier/compare/XXXX-<summary>.html`
-- `/explore`: `.kier/explore/XXXX-<summary>.html`
+- `/scope`: `.kier/scope/NNNN-<summary>.html`
+- `/compare`: `.kier/compare/NNNN-<summary>.html`
+- `/explore`: `.kier/explore/NNNN-<summary>.html`
+
+`NNNN` counts up per folder: `0001`, `0002`, and so on.
 
 ## Install
 

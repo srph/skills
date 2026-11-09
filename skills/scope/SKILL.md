@@ -9,7 +9,7 @@ Create one polished, glanceable HTML implementation plan. Diagrams and snippets 
 
 ## Output
 
-- Write to `.kier/scope/XXXX-<summary>.html` (`XXXX` short unique id, `<summary>` kebab-case). If file writing is unavailable, return the HTML.
+- Write to `.kier/scope/NNNN-<summary>.html`. `NNNN` is one more than the highest numeric prefix already in `.kier/scope/`, zero-padded to four digits; `0001` if there is none. Ignore files whose prefix is not all digits. `<summary>` is kebab-case. If file writing is unavailable, return the HTML.
 - If command execution is available, serve the directory with `http-server` on `0.0.0.0` and report the local URL, Tailscale URL or host/port, and file path.
 - The page is a neutral reading surface. Only UI mockups inside canvases use the target app's look.
 
