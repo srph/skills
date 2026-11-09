@@ -42,9 +42,9 @@ Layout, treatment, density, motion, copy. Vary the two or three that matter for 
 
 - Explore: add variations, either from the original brief or using an existing variation as the direction. `Explore from B` or `Explore from the brief`.
 - Remix: fork an existing variation and apply the suggestions to the fork. Never replace one; they are there for comparison. `Remix B: <changes>`.
-- Settle: the user picks one variation. Stop exploring; that variation is the direction for whatever comes next. `Settle on B`.
+- Settle: the user picks one variation. Stop exploring; that variation is the target output and implementation reference. Build it in the codebase's conventions and tech stack. `Settle on B. Use it as target output and implementation reference. Build it in the codebase's conventions and tech stack.`
 
-Each form ends with the file: `Settle on B in .kier/designs/0421-yeet-chip.html`. The Pick menu on every canvas produces these forms, so accept them verbatim.
+Each form names the file right after the variation: `Explore from B in .kier/designs/0421-yeet-chip.html`, `Settle on B in .kier/designs/0421-yeet-chip.html. Use it as target output and implementation reference. Build it in the codebase's conventions and tech stack.` The Pick menu on every canvas produces these forms, so accept them verbatim.
 
 ## Structure
 
